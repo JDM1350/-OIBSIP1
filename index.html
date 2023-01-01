@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+        integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <style>
+        .container-fluid {
+            background-color: rgb(226, 220, 212);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+
+        }
+
+        .container {
+            background-color: rgb(86, 232, 232);
+            height: 50vh;
+            width: 40vw;
+
+
+        }
+
+        #display {
+            
+            height: 10vh;
+            width: 100%;
+            border: black solid 1px;
+            padding-left: 0vh;
+            padding-right: 0vh;
+        }
+
+        #numbers {
+           
+            height: 30vh;
+            width: 100%;
+        }
+
+        #equal {
+            background-color: rgb(247, 167, 82);
+            height: 10vh;
+            width: 100%;
+        }
+
+
+        .col-sm-9 {
+            border: black solid 1px;
+        }
+
+        .row {
+
+            height: 7.5vh;
+        }
+
+        button {
+            height: 100%;
+            width: 100%;
+            border: solid 1px black;
+            text-align: center;
+            padding-top: 2vh;
+            font-weight: bold;
+            background-color: rgb(189, 189, 189);
+            
+        }
+
+        #result {
+            height: 100%;
+            width: 100%;
+            padding-left: 0vw;
+            padding-right: 0vw;
+            text-align: right;
+            background-color: rgb(49, 49, 48);
+            color: whitesmoke;
+        }
+
+        button:hover {
+            background-color: aliceblue;
+            color: black;
+            width: 100%;
+            height: 100%;
+        }
+
+        #c1 {
+            padding-left: 0vw;
+            padding-right: 0vw;
+        }
+        #equal:hover{
+            background-color: aliceblue;
+            color: black;
+        }
+        #sign{
+            background-color: rgb(247, 167, 82);
+
+        }
+        #sign:hover{
+            background-color: aliceblue;
+            color: black;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <div class="container-fluid">
+        <div class="container" id="c1">
+            <div class="container-fluid" id="display">
+                <input type="text" id="result">
+            </div>
+
+
+
+            <div class="container" id="numbers">
+
+
+
+
+                <div class="row">
+                    <button class="col-sm-3" id="1" onclick="func1('1')" value="1">1</button>
+                    <button class="col-sm-3" id="2" onclick="func1('2')" value="2">2</button>
+                    <button class="col-sm-3" id="3" onclick="func1('3')" value="3">3</button>
+                    <button class="col-sm-3" id="sign" onclick="func1('+')"><i style='font-size:20px'
+                            class='fas'>&#xf067;</i></button>
+                </div>
+
+
+
+
+                <div class="row">
+                    <button class="col-sm-3" onclick="func1('4')" id="4" value="4">4</button>
+                    <button class="col-sm-3" id="5" onclick="func1('5')" value="5">5</button>
+                    <button class="col-sm-3" id="6" onclick="func1('6')" value="6">6</button>
+                    <button class="col-sm-3" id="sign" onclick="func1('-')"><i style='font-size:20px'
+                            class='fas'>&#xf068;</i></button>
+                </div>
+
+
+
+
+                <div class="row">
+                    <button class="col-sm-3" id="7" onclick="func1('7')" value="7">7</button>
+                    <button class="col-sm-3" id="8" onclick="func1('8')" value="8">8</button>
+                    <button class="col-sm-3" id="9" onclick="func1('9')" value="9">9</button>
+                    <button class="col-sm-3" id="sign" onclick="func1('*')"><i style='font-size:20px'
+                            class='fas'>&#xf00d;</i></button>
+                </div>
+
+
+
+
+                <div class="row">
+
+                    <button class="col-sm-3" id="clear"
+                        onclick="document.getElementById('result').value = ''"><i style='font-size:24px' class='fas'>&#xf12d;</i></button>
+                    <button class="col-sm-3" value="0" onclick="func1('0')" id="0">0</button>
+                    <button class="col-sm-3" id="decimal" onclick="func1('.')"><b>.</b></button>
+                    <button class="col-sm-3" id="sign" onclick="func1('/')"><i style='font-size:20px'
+                            class='fas'>&#xf529;</i></button>
+                </div>
+
+            </div>
+            
+                <button class="container-fluid" onclick="solve()" id="equal">
+                    <h1><i style='font-size:36px' class='fas'>&#xf52c;</i></h1>
+                </button>
+            
+
+        </div>
+    </div>
+
+
+
+    </div>
+
+    <script>
+
+        function func1(val) {
+            document.getElementById('result').value += val;
+            return val;
+
+        }
+
+        function solve() {
+            let a = document.getElementById('result').value;
+            let y = eval(a);
+            document.getElementById('result').value = y;
+            return y;
+
+        }
+
+
+    </script>
+</body>
+
+</html>
